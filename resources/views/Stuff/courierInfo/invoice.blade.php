@@ -32,7 +32,7 @@
                                     {!! $code !!}
                                 </div>
                                 <div class="col-md-4">
-                                    <strong  style="font-size:18px;"> <img src="{{asset('assets/frontend/images/logo.png')}}" alt="" style="width:100%;"></strong>
+                                    <strong  style="font-size:18px;"> <img src="" alt="" style="width:100%;"></strong>
                                 </div>
                                 <div class="col-md-4">
                                     <strong>Receive Date : </strong><p style="font-size:16px;">{{ $courierInfo->created_at->toDateString() }}</p>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-md-4 offset-md-2">
                             <h6 class="mb-2">Receiver Details:</h6>
-                            <div><strong>Branch&nbsp;&nbsp;:</strong>&nbsp;{{ $courierInfo->branch->name }}</div>
+                            <div><strong>Branch&nbsp;&nbsp;:</strong>&nbsp;{{ $courierInfo->branch->branch_name }}</div>
                             <div><strong>Name&nbsp;&nbsp;&nbsp;&nbsp;:</strong>&nbsp;{{ $courierInfo->receiver_name }}</div>
                             @if($courierInfo->receiver_email)
                                 <div><strong>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong>&nbsp;{{ $courierInfo->receiver_email }}</div>
@@ -132,7 +132,7 @@
                                                 <strong>Branch</strong>
                                             </td>
                                             <td class="right">
-                                                <strong><span class="text-uppercase">{{ $courierInfo->payment_receiver->branch->name }}</span></strong>
+                                                <strong><span class="text-uppercase">{{ $courierInfo->payment_receiver->branch->branch_name }}</span></strong>
                                             </td>
                                         </tr>
                                     @endif
@@ -152,6 +152,11 @@
                             <button type="button" class="btn btn-success btn-md delete_button" data-toggle="modal" data-target="#receive{{ $courierInfo->id }}">
                                 <i class="fa fa-money-bill-alt"></i>  Make Payment
                             </button>
+
+{{--                            <button type="button" class="btn btn-success btn-md delete_button" data-toggle="modal" data-target="#receive{{ $courierInfo->id }}">--}}
+{{--                                <i class="fa fa-money-bill-alt"></i>  On the way--}}
+{{--                            </button>--}}
+
                             <div class="modal fade" id="receive{{ $courierInfo->id }}" role="dialog" aria-labelledby="#" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
@@ -177,6 +182,28 @@
                                 </div>
                             </div>
                         @endif
+
+
+
+{{--                            <div class="modal fade" id="receive{{ $courierInfo->id }}" role="dialog" aria-labelledby="#" aria-hidden="true">--}}
+{{--                                <div class="modal-dialog modal-dialog-centered" role="document">--}}
+{{--                                    <div class="modal-content">--}}
+{{--                                        <form method="POST" action="{{ route('stuff.courier.transit') }}">--}}
+{{--                                            @csrf--}}
+{{--                                            @method('PUT')--}}
+{{--                                            <div class="modal-header">--}}
+{{--                                                <h5 class="modal-title" ><i class="fa fa-download"></i>&nbsp;ON THE WAY?</h5>--}}
+
+{{--                                            </div>--}}
+
+{{--                                            <div class="modal-footer">--}}
+
+{{--                                                <button type="submit" class="btn btn-primary">Yes</button>--}}
+{{--                                            </div>--}}
+{{--                                        </form>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                     @endif
                 </div>
             </div>

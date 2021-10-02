@@ -214,6 +214,7 @@ Route::group(['as'=>'stuff.', 'prefix'=>'stuff' , 'namespace'=>'Stuff', 'middlew
     Route::post('courier/store', [CourierInfoControllerStuff::class,'store'])->name('courier.store');
     Route::get('courier/invoice/{courierInfo}', [CourierInfoControllerStuff::class,'courierInvoice'])->name('courier.invoice');
     Route::put('courier/receive/staff', [CourierInfoControllerStuff::class,'receiveCourier'])->name('courier.receive');
+    Route::put('courier/transit/staff',  [CourierInfoControllerStuff::class,'TransitCourier'])->name('courier.transit');
     Route::put('courier/payment/staff',  [CourierInfoControllerStuff::class,'paidCourier'])->name('courier.payment');
     //print slip route list
     Route::get('courier/slip/{id}', [CourierInfoControllerStuff::class,'printSlipView'])->name('courier.slip');
@@ -253,7 +254,7 @@ Route::group(['as'=>'manager.', 'prefix'=>'manager' , 'namespace'=>'manager', 'm
 
 //=============staff================
     Route::get('staff', [stuffController::class,'index'])->name('index');
-    Route::get('staff/store',[stuffController::class,'store'])->name('store');
+    Route::post('staff/store',[stuffController::class,'store'])->name('store');
     Route::get('staff/create',[stuffController::class,'create'])->name('create');
 
 

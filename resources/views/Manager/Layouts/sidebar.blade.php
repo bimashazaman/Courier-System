@@ -53,7 +53,7 @@
                     <a href="{{route('manager.departure')}}" class="nav-link {{ isActive('company-master') }}">
 
                         <p>
-                            Branch Courier
+                            Departure Courier
 
                         </p>
                     </a>

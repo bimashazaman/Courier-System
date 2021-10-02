@@ -37,7 +37,7 @@ class CreateCourierInfosTable extends Migration
             $table->string('receiver_phone');
             $table->text('receiver_address')->nullable();
             $table->string('invoice_id');
-            $table->enum('status', ['Delivered', 'Received'])->default('Delivered');
+            $table->enum('status', ['Delivered', 'Received','Transit'])->default('Delivered');
             $table->unsignedBigInteger('sender_branch_staff_id')->nullable();
 
             $table->foreign('sender_branch_staff_id')

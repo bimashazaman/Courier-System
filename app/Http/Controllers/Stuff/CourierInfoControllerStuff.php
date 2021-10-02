@@ -116,6 +116,22 @@ class CourierInfoControllerStuff extends Controller
         return view('stuff.courierInfo.invoice', compact('courierInfo', 'courierProductInfoList', 'gs', 'code'));
     }
 
+    public function TransitCourier(Request $request) {
+
+        $id = $request->get('id');
+        $courierInfo = CourierInfo::find($id);
+//        if ($request->status == "Transit") {
+////            $courierInfo->payment_date = Carbon::now()->toDateString();
+////            $courierInfo->payment_branch_id = Auth::user()->branch_id;
+//////            $courierInfo->payment_receiver_id = Auth::user()->id;
+////            $courierInfo->payment_status = "Unpaid";
+//        }
+//        $courierInfo->receiver_branch_staff_id = Auth::user()->id;
+        $courierInfo->status = 'Transit';
+        $courierInfo->save();
+        return redirect()->back();
+    }
+
 
     public function receiveCourier(Request $request) {
 

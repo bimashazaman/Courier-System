@@ -50,7 +50,7 @@
                         <tr>
                             <td>{{ $key+1 }}</td>
                             <td><a href="{{ route('admin.branch.income.date',[$branch,$branchIncome->payment_date]) }}">{{ $branchIncome->payment_date }}</a></td>
-                            <td>{{ $branchIncome->total_balance }}&nbsp;{{ $gs->base_currency }}</td>
+                            <td>{{ $branchIncome->total_balance }}&nbsp;tk</td>
                         </tr>
                     @empty
                         <tr>

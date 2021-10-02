@@ -14,7 +14,7 @@ class CourierInfo extends Model
 
 
     public function courier_product_infos() {
-        return $this->hasMany('CourierProductInfo', 'courier_info_id');
+        return $this->hasMany(CourierProductInfo::class, 'courier_info_id');
     }
 
     public function branch() {

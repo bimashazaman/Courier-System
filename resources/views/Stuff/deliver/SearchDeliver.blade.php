@@ -49,7 +49,7 @@
                                 </td>
                                 <td>{{ $courier->sender_name }}</td>
                                 <td>{{ $courier->sender_phone }}</td>
-                                <td>{{ $courier->receiver_branch->name }}</td>
+                                <td>{{ $courier->receiver_branch->branch_name }}</td>
                                 <td>{{ $courier->receiver_name }}</td>
                                 <td>{{ $courier->receiver_phone }}</td>
                                 <td>{{ $courier->payment_status }}</td>

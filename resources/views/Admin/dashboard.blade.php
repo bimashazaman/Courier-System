@@ -63,26 +63,26 @@
             </div>
         </div>
     </div>
-{{--    <script type="text/javascript">--}}
-{{--        $(document).ready(function () {--}}
-{{--            var months = {!! json_encode(array_values(month_arr())) !!};--}}
-{{--            new Morris.Line({--}}
-{{--                element: 'appointment',--}}
-{{--                data: {!! $total_chart !!},--}}
-{{--                xkey: 'month',--}}
-{{--                ykeys: [ 'income'],--}}
-{{--                labels: ['INCOME'],--}}
-{{--                xLabelFormat: function(x) { // <--- x.getMonth() returns valid index--}}
-{{--                    var month = months[x.getMonth()];--}}
-{{--                    return month;--}}
-{{--                },--}}
-{{--                dateFormat: function(x) {--}}
-{{--                    var month = months[new Date(x).getMonth()];--}}
-{{--                    return month;--}}
-{{--                },--}}
-{{--            });--}}
-{{--        });--}}
-{{--    </script>--}}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var months = {!! json_encode(array_values(month_arr())) !!};
+            new Morris.Line({
+                element: 'appointment',
+                {{--data: {!! $total_chart !!},--}}
+                xkey: 'month',
+                ykeys: [ 'income'],
+                labels: ['INCOME'],
+                xLabelFormat: function(x) { // <--- x.getMonth() returns valid index
+                    var month = months[x.getMonth()];
+                    return month;
+                },
+                dateFormat: function(x) {
+                    var month = months[new Date(x).getMonth()];
+                    return month;
+                },
+            });
+        });
+    </script>
 
 
 @stop

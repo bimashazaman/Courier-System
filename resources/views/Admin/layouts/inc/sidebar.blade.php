@@ -4,6 +4,7 @@
 
 
         <li><a href="{{ route('admin.company.view') }}"><i class="fa fa-cog"></i> Company Management</a></li>
+        <li><a href="{{ route('admin.company.income') }}"><i class="fa fa-cog"></i> Company Income</a></li>
 
                 <li><a href="{{ route('admin.basicSetting') }}"><i class="fa fa-cog"></i> Basic Settings</a></li>
                 <li><a href="{{ route('admin.smsSetting') }}"><i class="fa fa-phone"></i> SMS Settings</a></li>

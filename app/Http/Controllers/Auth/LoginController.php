@@ -5,41 +5,63 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class LoginController extends Controller
 {
 
-
     use AuthenticatesUsers;
 
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    // protected $redirectTo = '/admin/route';
 
-    protected $redirectTo ;
-
-
-
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
-        if(Auth::check() && Auth::user()->role_id == 1)
-        {
-            $this->redirectTo=route('admin.dashboard');
-        }
-        elseif(Auth::check() && Auth::user()->role_id == 3)
-        {
-            $this->redirectTo=route('manager.dashboard');
-        }
-        elseif(Auth::check() && Auth::user()->role_id == 4)
-        {
-            $this->redirectTo=route('stuff.dashboard');
-        }
-//        else{
-//            $this->redirectTo=route('');
-//        }
-
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {
+        $inputVal = $request->all();
+
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (auth()->attempt(array('email' => $inputVal['email'], 'password' => $inputVal['password']))) {
+            if (auth()->user()->role_id == 1) {
+                return redirect()->route('admin.route');
+            } elseif (auth()->user()->role_id == 2) {
+                return redirect()->route('stuff.dashboard');
+            } elseif (auth()->user()->role_id == 3) {
+                return redirect()->route('manager.dashboard');
+            }
+
+        }
+        else{
+        return redirect()->route('login');
+        }
+    }
+
     }
 
 
 
-}
+
+
+
+
+
+

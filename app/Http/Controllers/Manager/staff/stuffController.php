@@ -27,9 +27,9 @@ class stuffController extends Controller
                         ->orWhere('email', 'LIKE', "%$searchtext%")
                         ->orWhere('phone', 'LIKE', "%$searchtext%");
                 })
-                ->paginate(20);
+                ;
         } else {
-            $branchStaffList = User::where([['type', 'Staff'], ['branch_id', Auth::user()->branch_id]]);
+            $branchStaffList = User::where([['role_id', '2'], ['branch_id', Auth::user()->branch_id]]);
 
         }
 

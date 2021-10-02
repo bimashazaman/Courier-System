@@ -89,7 +89,7 @@
                                 </td>
                                 <td>
                                     <p>
-                                        {{ $list->branch->name }}
+                                        {{ $list->branch->branch_name }}
                                     </p>
                                 </td>
                                 <td>
